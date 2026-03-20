@@ -1,6 +1,7 @@
 import periodictable as pt
 import nicegui as ui
 
+infos = ['weight', 'electronegativity',]
 atoms = []
 table = []
 for el in pt.elements:
@@ -41,7 +42,6 @@ print(layout)
 
 
 
-
 #    for k in i:
 #        for j in atoms:
 #            num = j.number
@@ -55,4 +55,9 @@ print(table)
 print(len(table))
 
 def get_info(element):
-   pass 
+   el = []
+   el.append((element.mass, element.mass_unit), element.electronnegativity)
+   return el
+
+print(get_info(atoms[0])
+
