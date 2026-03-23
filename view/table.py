@@ -1,7 +1,7 @@
 from nicegui import ui
 
-class MainPage():
-    """ Main page """
+class TablePage():
+    """ Periodic table page """
 
     def __init__(self, layout):
         self.layout = layout
@@ -18,7 +18,7 @@ class MainPage():
         """ This function takes a multiplier for settings up the table """
         for i in range(0+18*m, 18+18*m):
                     if self.layout[i] != 0:
-                        self.buttons[f"e{self.layout[i]}"] = ui.button(f"{self.layout[i]}", on_click=lambda val=self.layout[i]: self.generate_element_text(val))
+                        self.buttons[f"e{self.layout[i]}"] = ui.button(f"{self.layout[i]}", on_click=lambda val=self.layout[i]: self.generate_element_text(val)).classes('w-[55px] h-[55px] p-0')
                     else:
                         ui.space()
 
@@ -47,16 +47,19 @@ class MainPage():
         
 
     def setup_page(self):
-        # Make all buttons the same size
-        ui.add_head_html('''
-        <style> .q-btn { width: 60px; } </style>
-        ''')
+        # Back button
+        ui.button(icon='arrow_back', on_click=lambda: ui.navigate.to('/'))
+        # Make all buttons the same size, NOTE: I haven't deleted this incase we need it later
+        # ui.add_head_html('''
+        # <style> .q-btn { width: 60px; } </style>
+        # ''')
         
         # Make all the buttons not be in caps so that the elements are displayed correctly
         ui.button.default_props('no-caps')
 
         # Periodic table setup
-        self.setup_table()    
+        with ui.card():
+            self.setup_table()    
 
         # Message box for element information
         self.element_message = ui.markdown("There is no element selected currently.")
