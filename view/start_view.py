@@ -1,4 +1,5 @@
 from nicegui import ui
+import ui
 
 
 class MainScreen:
@@ -11,10 +12,11 @@ class MainScreen:
 
             with ui.row().classes('gap-4'):
                 ui.button('quiz').classes('text-xl py-4 w-64')
-                ui.button('Periodisk System').classes('text-xl py-4 w-64')
+                ui.button('Periodisk System', on_click=lambda: ui.navigate.to('/ui')).classes('text-xl py-4 w-64')
 
 
-
-MainScreen()
+@ui.page('/')
+def mainscreen():
+    MainScreen()
 
 ui.run()
