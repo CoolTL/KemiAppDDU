@@ -10,7 +10,7 @@ class MainScreen:
             ui.label('Kemidle').classes('text-8xl')
 
             with ui.row().classes('gap-4'):
-                ui.button('quiz').classes('text-xl py-4 w-64')
+                ui.button('quiz', on_click=lambda: ui.navigate.to('/quiz')).classes('text-xl py-4 w-64')
                 ui.button('Periodisk System', on_click=lambda: ui.navigate.to('/table')).classes('text-xl py-4 w-64')
 
 
