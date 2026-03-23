@@ -18,7 +18,10 @@ class TablePage():
         """ This function takes a multiplier for settings up the table """
         for i in range(0+18*m, 18+18*m):
                     if self.layout[i] != 0:
-                        self.buttons[f"e{self.layout[i]}"] = ui.button(f"{self.layout[i]}", on_click=lambda val=self.layout[i]: self.generate_element_text(val)).classes('w-[55px] h-[55px] p-0')
+                        with ui.button(f"{self.layout[i]}", on_click=lambda val=self.layout[i]: self.generate_element_text(val)).classes('w-[55px] h-[55px] p-0') as button:
+                            self.buttons[f"e{self.layout[i]}"] = button
+                            # Atomic number in the corner
+                            ui.label(self.layout[i].number).classes('absolute top-0 left-1 text-[10px] opacity-85')
                     else:
                         ui.space()
 
@@ -52,9 +55,6 @@ class TablePage():
         # <style> .q-btn { width: 60px; } </style>
         # ''')
         
-        # Make all the buttons not be in caps so that the elements are displayed correctly
-        ui.button.default_props('no-caps')
-
         # Periodic table setup
         with ui.card():
             self.setup_table()    
