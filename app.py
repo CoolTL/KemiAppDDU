@@ -6,6 +6,8 @@ import view.start_view as start
 import view.quiz_menu as qm
 from controller.controller import Controller
 
+ui.button.default_props('no-caps')
+
 model = Model()
 @ui.page('/table')
 def table():
