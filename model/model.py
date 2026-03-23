@@ -1,15 +1,15 @@
-import periodictable as pt
+from mendeleev import get_all_elements
 
 class Model:
     def __init__(self):
 
 
-        self.names = ['mass','density']
-        self.infos = ['mass', 'density']
-        self.units = ['mass_units', 'density_units']
+        self.names = ['mass', 'density', 'charge']
+        self.infos = ['atomic_weight', 'density', 'dipole_polarizability']
+        self.units = ['mass_units', 'density_units', 'charge_units']
         self.atoms = []
         self.table = []
-        for el in pt.elements:
+        for el in get_all_elements():
             self.atoms.append(el)
 
         self.layout= [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
@@ -26,13 +26,21 @@ class Model:
         counter = 0
         for i in self.layout:
             if self.layout[counter] != 0:
-                self.layout[counter] = self.atoms[i-1] 
+                self.layout[counter] = self.atoms[i-1]
             counter += 1
 
     def get_info(self, element):
        el = []
+       el.append("Name: " + element.name)
        n = 0
        for i in self.infos:
-           el.append(self.names[n] + str(getattr(element, i)) + str(getattr(element, self.units[n])))
+           try:
+               el.append(self.names[n] + ": " + str(getattr(element, i)) + str(getattr(element, self.units[n])))
+           except:
+               el.append(self.names[n] + ": " + str(getattr(element, i)))
            n += 1
        return el
+
+model = Model()
+
+print(model.get_info(model.atoms[7]))
