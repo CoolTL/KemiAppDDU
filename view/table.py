@@ -24,26 +24,24 @@ class TablePage():
 
     def setup_table(self):
         """ This method is seperate to make the code a bit cleaner """
-        with ui.column():
-            with ui.row().classes('w-full'):
-                self.populate_table(0)
-            with ui.row().classes('w-full'):
-                self.populate_table(1)
-            with ui.row().classes('w-full'):
-                self.populate_table(2)
-            with ui.row().classes('w-full'):
-                self.populate_table(3)
-            with ui.row().classes('w-full'):
-                self.populate_table(4)
-            with ui.row().classes('w-full'):
-                self.populate_table(5)
-            with ui.row().classes('w-full'):
-                self.populate_table(6)
-            ui.space()
-            with ui.row().classes('w-full'):
-                self.populate_table(7)
-            with ui.row().classes('w-full'):
-                self.populate_table(8)
+        grid_style = "grid-cols-[25px_repeat(18,60px)]"
+        
+        with ui.grid().classes(f'gap-2 {grid_style}'):
+            ui.label('') # Empty corner
+            # Numbers at the top
+            for i in range(1, 19):
+                ui.label(i).classes('text-center font-bold')
+            # First 7 rows
+            for i in range(0, 7):
+                ui.label(i+1).classes('flex items-center justify-center font-bold')
+                self.populate_table(i)
+            # Empty row
+            for i in range(0, 19):
+                ui.space().classes('h-[20px]')
+            # Last two lines
+            for i in range(7, 9):
+                ui.label('')
+                self.populate_table(i)
         
 
     def setup_page(self):
