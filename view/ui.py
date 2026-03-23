@@ -4,7 +4,6 @@ class MainPage():
     """ Main page """
 
     def __init__(self):
-
         # This is temp
         self.layout= [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
  3,4,0,0,0,0,0,0,0,0,0,0,5,6,7,8,9,10,
@@ -16,17 +15,20 @@ class MainPage():
  0,0,0,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,
  0,0,0,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103
  ]
+        # Dictionary of buttons
+        self.buttons = {}
+        # Setup this page
         self.setup_page()
 
     
-    def generate_element_text(self):
-        self.element_message.set_content("Test")
+    def generate_element_text(self, element):
+        self.element_message.set_content(f"Element: {element}")
 
     def populate_table(self, m):
         """ This function takes a multiplier for settings up the table """
         for i in range(0+18*m, 18+18*m):
                     if self.layout[i] != 0:
-                        i = ui.button(self.layout[i], on_click=self.generate_element_text)
+                        self.buttons[f"e{self.layout[i]}"] = ui.button(self.layout[i], on_click=lambda val=self.layout[i]: self.generate_element_text(val))
                     else:
                         ui.space()
 
@@ -66,7 +68,7 @@ class MainPage():
         # Periodic table setup
         self.setup_table()    
 
-
+        # Message box for element information
         self.element_message = ui.markdown("There is no element selected currently.")
 
 page = MainPage()
