@@ -73,12 +73,11 @@ class TablePage():
             self.buttons[button].set_background_color(SERIES_COLORS.get(button.series))
 
     def setup_page(self):
-        # Back button
-        ui.button(icon='arrow_back', on_click=lambda: ui.navigate.to('/'))
-        # Make all buttons the same size, NOTE: I haven't deleted this incase we need it later
-        # ui.add_head_html('''
-        # <style> .q-btn { width: 60px; } </style>
-        # ''')
+        with ui.row():
+            # Back button
+            ui.button(icon='arrow_back', on_click=lambda: ui.navigate.to('/'))
+            # Search bar
+            self.search_bar = ui.input(label="Search for element", placeholder="Start typing").props('rounded outlined dense')
 
         with ui.row():
             # Periodic table setup
