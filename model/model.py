@@ -71,7 +71,20 @@ class Model:
                     el.append(self.names[n] + ": N/A")
             n += 1
         return el
+    def search(self, search):
+        results = []
+        if search == 'Bo Alsworth Tvede':
+            results.append(self.atoms[9].name)
+        elif search == 'Rong Fu':
+            results.append(self.atoms[103].name)
+        for i in self.atoms:
+            if str(search).lower() in i.name.lower():
+                results.append(i.name)
+        return results
+
 
 model = Model()
 
 print(model.get_info(model.atoms[0]))
+print(model.search('Hydrogen'))
+
