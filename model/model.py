@@ -71,11 +71,13 @@ class Model:
                     el.append(self.names[n] + ": N/A")
             n += 1
         return el
+    
     def search(self, search):
+        """ This returns a list of all elements names' matching the search """
         results = []
-        if search == 'Bo Alsworth Tvede':
+        if search.title() == 'Bo Alsworth Tvede':
             results.append(self.atoms[9].name)
-        elif search == 'Rong Fu':
+        elif search.title() == 'Rong Fu':
             results.append(self.atoms[103].name)
         for i in self.atoms:
             if str(search).lower() in i.name.lower():

@@ -18,7 +18,11 @@ class TablePage():
 
     def set_element_text(self, message):
         """ This gets called by the controller to set the element text """
-        self.element_message.set_content(message)        
+        self.element_message.set_content(message)
+
+    def search_updated(self, search):
+        """ Sends the search to the controller for handling """
+        self.controller.update_search(search)
 
     def populate_table(self, m):
         """ This function takes a multiplier for settings up the table """
@@ -77,7 +81,9 @@ class TablePage():
             # Back button
             ui.button(icon='arrow_back', on_click=lambda: ui.navigate.to('/'))
             # Search bar
-            self.search_bar = ui.input(label="Search for element", placeholder="Start typing").props('rounded outlined dense')
+            self.search_bar = ui.input(label="Search for element",
+                                       placeholder="Start typing",
+                                       on_change=lambda e: self.search_updated(e.value)).props('rounded outlined dense clearable')
 
         with ui.row():
             # Periodic table setup

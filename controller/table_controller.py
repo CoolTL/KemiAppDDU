@@ -32,4 +32,13 @@ class TableController:
             self.unselect_element()
 
     def update_search(self, text):
-        return self.model.search(text)
+        """ This gets called by the view when the search changes, we use this to show/hide elements """
+        self.hide_unsearched(self.model.search(text))
+
+    def hide_unsearched(self, search):
+        """ This hides the elements that don't fit the search """
+        for button in self.table_view.buttons:
+            if button.name in search:
+                self.table_view.buttons[button].classes(remove='opacity-0 pointer-events-none')
+            else:
+                self.table_view.buttons[button].classes('opacity-0 pointer-events-none')
