@@ -30,3 +30,6 @@ class TableController:
             self.selected_element = element
         else:
             self.unselect_element()
+
+    def update_search(self, text):
+        return self.model.search(text)

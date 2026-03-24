@@ -8,6 +8,15 @@ from controller.table_controller import TableController
 
 ui.button.default_props('no-caps')
 
+ui.add_head_html('''
+<style>
+math {
+    font-family: inherit;
+}
+</style>
+''', shared=True)
+
+
 model = Model()
 # Each view will have its own controller for example the quiz page and the periodic table geoguessr
 table_controller = TableController(model)

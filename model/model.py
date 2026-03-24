@@ -26,11 +26,11 @@ class Model:
                       ]
         self.units = ['',
                       'u',
-                      'kg/m^3',
+                      '$\\frac{\\text{kg}}{\\text{m}^3}$',
                       '',
-                      'cm^3/mol',
+                      '$\\frac{\\text{cm}^3}{\\text{mol}}$',
                       '',
-                      'K',
+                      '$\\text{K}$',
                       'K',
                       '',
 
