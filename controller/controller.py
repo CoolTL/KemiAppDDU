@@ -1,13 +1,7 @@
-class Controller:
-    def __init__(self, model, view):
+class TableController:
+    def __init__(self, model):
         self.model = model
-        self.view = view
 
-        #self.change_button_names(self.model, self.view)
-
-    # def change_button_names(self, model, view):
-    #     """ This method changes the periodic table from having the number to the name """
-    #     i = 0
-    #     for button in view.buttons:
-    #         view.buttons[button].set_text(f"{model.atoms[i]}")
-    #         i += 1
+    def generate_element_text(self, table_view, element):
+        """ This gets called by the table view, and then we use it to update the description of the element """
+        table_view.set_element_text(f"Test: {element.name}")
