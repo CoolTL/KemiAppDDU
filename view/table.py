@@ -14,7 +14,7 @@ class TablePage():
     
     def button_pressed(self, element):
         """ This calls the controller to change the text """
-        self.controller.generate_element_text(table_view=self, element=element)
+        self.controller.generate_element_text(element=element)
 
     def set_element_text(self, message):
         """ This gets called by the controller to set the element text """
@@ -68,4 +68,5 @@ class TablePage():
             self.setup_table()    
 
         # Message box for element information
-        self.element_message = ui.markdown("There is no element selected currently.")
+        with ui.card():
+            self.element_message = ui.markdown()
