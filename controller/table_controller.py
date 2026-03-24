@@ -24,7 +24,9 @@ class TableController:
     def generate_element_text(self, element):
         """ This gets called by the table view, and then we use it to update the description of the element """
         if element != self.selected_element:
-            self.table_view.set_element_text(f"### Selected element: **{element.name}**")
+            el = self.model.get_info(element)
+            el2 = el[1:]
+            self.table_view.set_element_text(f"### Selected element: **{ el[0]}** <br> {'<br>'.join(el2)}")
             self.selected_element = element
         else:
             self.unselect_element()

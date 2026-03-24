@@ -4,9 +4,37 @@ class Model:
     def __init__(self):
 
 
-        self.names = ['Name', 'Series', 'Mass', 'Density', 'Electronegativity', 'Volume' ]
-        self.infos = ['name', 'series', 'atomic_weight', 'density', 'en_pauling', 'atomic_volume']
-        self.units = ['', '','u', 'kg/m^3','','cm^3/mol']
+        self.names =[ 'Series',
+                      'Mass',
+                      'Density',
+                      'Electronegativity',
+                      'Volume',
+                      'Mass Number',
+                      'Melting Point',
+                      'Boiling Point',
+                      'Discovery Year',
+                      ]
+        self.infos = ['series',
+                      'atomic_weight',
+                      'density',
+                      'en_pauling',
+                      'atomic_volume',
+                      'mass_number',
+                      'melting_point',
+                      'boiling_point',
+                      'discovery_year'
+                      ]
+        self.units = ['',
+                      'u',
+                      'kg/m^3',
+                      '',
+                      'cm^3/mol',
+                      '',
+                      'K',
+                      'K',
+                      '',
+
+                      ]
         self.atoms = []
         self.table = []
         for el in get_all_elements():
@@ -31,6 +59,7 @@ class Model:
 
     def get_info(self, element):
         el = []
+        el.append(element.name)
         n = 0
         for i in self.infos:
             try:
