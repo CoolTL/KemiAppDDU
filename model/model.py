@@ -4,9 +4,9 @@ class Model:
     def __init__(self):
 
 
-        self.names = ['mass', 'density', 'charge']
-        self.infos = ['atomic_weight', 'density', 'dipole_polarizability']
-        self.units = ['mass_units', 'density_units', 'charge_units']
+        self.names = ['Name', 'Series', 'Mass', 'Density', 'Electronegativity', 'Volume' ]
+        self.infos = ['name', 'series', 'atomic_weight', 'density', 'en_pauling', 'atomic_volume']
+        self.units = ['', '','u', 'kg/m^3','','cm^3/mol']
         self.atoms = []
         self.table = []
         for el in get_all_elements():
@@ -30,17 +30,19 @@ class Model:
             counter += 1
 
     def get_info(self, element):
-       el = []
-       el.append("Name: " + element.name)
-       n = 0
-       for i in self.infos:
-           try:
-               el.append(self.names[n] + ": " + str(getattr(element, i)) + str(getattr(element, self.units[n])))
-           except:
-               el.append(self.names[n] + ": " + str(getattr(element, i)))
-           n += 1
-       return el
+        el = []
+        n = 0
+        for i in self.infos:
+            try:
+                el.append(self.names[n] + ": " + str(getattr(element, i)) + str(self.units[n]))
+            except:
+                try:
+                    el.append(self.names[n] + ": " + str(getattr(element, i)))
+                except:
+                    el.append(self.names[n] + ": N/A")
+            n += 1
+        return el
 
 model = Model()
 
-print(model.get_info(model.atoms[7]))
+print(model.get_info(model.atoms[0]))
