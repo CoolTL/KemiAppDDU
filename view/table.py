@@ -25,7 +25,7 @@ class TablePage():
         for i in range(0+18*m, 18+18*m):
                     if self.layout[i] != 0:
                         with ui.button(f"{self.layout[i].symbol}", on_click=lambda val=self.layout[i]: self.button_pressed(val)).classes('w-[62px] h-[62px] p-0') as button:
-                            self.buttons[f"e{self.layout[i]}"] = button
+                            self.buttons[self.layout[i]] = button
                             # Atomic number in the corner
                             ui.label(self.layout[i].atomic_number).classes('absolute top-0 left-1 text-[10px] opacity-85')
                             # Full name underneath
@@ -53,7 +53,24 @@ class TablePage():
             for i in range(7, 9):
                 ui.label('')
                 self.populate_table(i)
-        
+
+    def color_table(self):
+        """ This method makes the colors of the buttons correct """
+        # Defining the series colors because mendeleev doesn't have them
+        SERIES_COLORS = {
+            "Nonmetals": "#7fffd4",            # Light Green/Teal
+            "Noble gases": "#c0ffff",          # Light Blue
+            "Alkali metals": "#ff6666",        # Red/Pink
+            "Alkaline earth metals": "#ffdead", # Light Orange/Tan
+            "Metalloids": "#cccc99",           # Olive/Grey
+            "Halogens": "#ffff99",             # Yellow
+            "Poor metals": "#cccccc",          # Silver/Grey
+            "Transition metals": "#ffc0cb",    # Pink
+            "Lanthanides": "#ffbfff",          # Purple/Violet
+            "Actinides": "#ff99cc",            # Darker Pink/Magenta
+        }
+        for button in self.buttons:
+            self.buttons[button].set_background_color(SERIES_COLORS.get(button.series))
 
     def setup_page(self):
         # Back button
@@ -62,11 +79,14 @@ class TablePage():
         # ui.add_head_html('''
         # <style> .q-btn { width: 60px; } </style>
         # ''')
-        
-        # Periodic table setup
-        with ui.card():
-            self.setup_table()    
 
-        # Message box for element information
-        with ui.card():
-            self.element_message = ui.markdown()
+        with ui.row():
+            # Periodic table setup
+            with ui.card():
+                self.setup_table()    
+                # Color the table
+                self.color_table()
+                
+            # Message box for element information
+            with ui.card():
+                self.element_message = ui.markdown("", extras=['latex'])
