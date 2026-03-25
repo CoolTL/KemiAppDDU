@@ -4,7 +4,9 @@ from model.model import Model
 from view.table import TablePage
 import view.start_view as start
 import view.quiz_menu as qm
+import view.table_quiz as qt
 from controller.table_controller import TableController
+
 
 ui.button.default_props('no-caps')
 
@@ -30,5 +32,8 @@ def main_page():
 @ui.page('/quiz')
 def quiz():
     quiz = qm.QuizScreen()
+@ui.page('/tquiz')
+def tquiz():
+    tqiz = qt.TableQuiz(model.layout, table_controller)
 
 ui.run()

@@ -10,12 +10,12 @@ class QuizScreen:
         with ui.column().classes('w-full items-center'):
             ui.label('Vælg en quiz').classes('text-4xl')
 
-            self.quiz('Daglig Quiz')
-            self.quiz('Udfyld det periodiske system')
-            self.quiz('Farv det periodiske system')
-            self.quiz('Lær navngivning af molekyler')
+            self.quiz('Daglig Quiz', 'temp')
+            self.quiz('Udfyld det periodiske system', 'tquiz')
+            self.quiz('Farv det periodiske system', 'temp')
+            self.quiz('Lær navngivning af molekyler', 'temp')
             
 
-    def quiz(self, text):
-        return ui.button(text).classes('w-64 py-4 text-xl')
+    def quiz(self, text, page):
+        return ui.button(text, on_click=lambda: ui.navigate.to(f'/{page}')).classes('w-64 py-4 text-xl')
 
