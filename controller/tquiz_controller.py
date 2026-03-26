@@ -6,24 +6,28 @@ class TQuizController:
 
         # Keeps track of the selected element so that it can be unselected
         self.selected_element =  None
+        self.order = self.model.atoms
+        rng.shuffle(self.order)
+        self.num = 0
 
     def set_view(self, tquiz_view):
         """ We set the view here, this gets set by app.py """
         self.tquiz_view = tquiz_view
+        self.setup()
+
         
-    def generate_element_text(self, element):
-        """ This gets called by the table view, and then we use it to update the description of the element """
-        if element != self.selected_element:
-            el = self.model.get_info(element)
-            el2 = el[1:]
-            self.tquiz_view.set_element_text(f"### Selected element: **{ el[0]}** <br> {'<br>'.join(el2)}")
-            self.selected_element = element
+    def generate_element_text(self):
+        self.tquiz_view.set_element_text(f"Current element: {self.order[self.num]}")
 
-    def random_element(self, element_list):
-        return rng.shuffle(element_list)
 
-    def compare_elements(self, element, current):
-        if element == current:
+
+    def compare_elements(self, element):
+        if element == self.order[self.num]:
+            self.num += 1
+            self.generate_element_text()
             return True
         else:
             return False
+
+    def setup(self):
+        self.generate_element_text()

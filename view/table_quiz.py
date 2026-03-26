@@ -14,7 +14,8 @@ class TableQuiz():
     
     def button_pressed(self, element):
         """ This calls the controller to change the text """
-        self.controller.generate_element_text(element=element)
+        if self.controller.compare_elements(element):
+            
 
     def set_element_text(self, message):
         """ This gets called by the controller to set the element text """
@@ -25,7 +26,7 @@ class TableQuiz():
         """ This function takes a multiplier for settings up the table """
         for i in range(0+18*m, 18+18*m):
                     if self.layout[i] != 0:
-                        with ui.button(f"{self.layout[i].symbol}", on_click=lambda val=self.layout[i]: self.button_pressed(val)).classes('w-[62px] h-[62px] p-0 opacity-0') as button:
+                        with ui.button(f"{self.layout[i].symbol}", on_click=lambda val=self.layout[i]: self.button_pressed(val)).classes('w-[62px] h-[62px] p-0 border border-gray-300 text-transparent') as button:
                             self.buttons[self.layout[i]] = button
                             # Atomic number in the corner
                             ui.label(self.layout[i].atomic_number).classes('absolute top-0 left-1 text-[10px] opacity-85')
