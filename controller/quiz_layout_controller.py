@@ -10,8 +10,10 @@ class QuizLayoutController:
 
     def setup_question(self):
         """ Put question text into the view """
-        answer_options = self.model.prepare_question()['answers']
-        self.view.place_question_text(answer_options)
+        question = self.model.prepare_question()
+        answer_options = question['answers']
+        question_text = question['question']
+        self.view.place_question_text(question_text, answer_options)
 
     def get_explanation(self):
         """ This gets run if you picked the wrong answer """
@@ -25,3 +27,4 @@ class QuizLayoutController:
             self.view.write_explanation("Correct!")
         else:
             self.get_explanation()
+        self.view.buttons_enabled(False)

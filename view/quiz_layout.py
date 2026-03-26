@@ -9,8 +9,10 @@ class QuizLayout:
         self.setup_page()
 
     def setup_page(self):
+        # Back button
+        ui.button(icon='arrow_back', on_click=lambda: ui.navigate.back())
         # Question text
-        question = ui.label("Question goes here")
+        self.question = ui.label("Question goes here")
         # Question image
         # TODO implement later
         # Answer options
@@ -23,8 +25,9 @@ class QuizLayout:
         # Explanation text
         self.explanation_label = ui.label("Choose an answer")
 
-    def place_question_text(self, options):
-        """ This gets called by the controller and gives the options for answers """
+    def place_question_text(self, question, options):
+        """ This gets called by the controller and gives the options for answers, plus the question """
+        self.question.set_text(question)
         i = 0
         for button in self.answer_buttons:
             button.set_text(options[i])
@@ -38,3 +41,12 @@ class QuizLayout:
         """ This calls the controller to check if it was correct or not """
         answer_picked = button.text
         self.controller.check_answer(answer_picked)
+
+    def buttons_enabled(self, state):
+        """ Enable or disable answers """
+        if state:
+            for button in self.answer_buttons:
+                button.enable()
+        else:
+            for button in self.answer_buttons:
+                button.disable()

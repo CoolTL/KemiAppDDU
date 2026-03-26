@@ -3,10 +3,10 @@
 	"q1": {
 	    "category": "chemistry",
 	    "difficulty": 1,
-	    "question": "Test",
+	    "question": "Hvilken grundstof har samme bogstaver som Rong's initialler?",
 	    "answers": ["H", "O", "He", "Rf"],
 	    "correct": 3,
-	    "explanation": "This is the 0th question because of 0-indexing"
+	    "explanation": "Hendes fulde navn er Rong Fu"
 	},
 	"q2": {
 	    "category": "chemistry2",
