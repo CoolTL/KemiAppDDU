@@ -14,6 +14,14 @@ class QuizLayoutController:
         self.view.place_question_text(answer_options)
 
     def get_explanation(self):
-        """ This gets run after you press an answer, either we display a correct message, or an explanation """
+        """ This gets run if you picked the wrong answer """
         explanation_text = self.model.prepare_question()['explanation']
         self.view.write_explanation(explanation_text)
+
+    def check_answer(self, answer):
+        """ This checks if the answer selected is correct or not """
+        correct_answer = self.model.correct_answer()
+        if answer == correct_answer:
+            self.view.write_explanation("Correct!")
+        else:
+            self.get_explanation()

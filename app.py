@@ -41,7 +41,7 @@ def quiz():
     quiz = qm.QuizScreen()
 @ui.page('/quiz/daily')
 def quiz_layout_page():
-    quiz_layout = QuizLayout()
+    quiz_layout = QuizLayout(quiz_layout_controller)
     quiz_layout_controller.set_view(quiz_layout)
 @ui.page('/tquiz')
 def tquiz_page():

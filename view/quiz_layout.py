@@ -2,8 +2,9 @@ from nicegui import ui
 
 class QuizLayout:
     """ This class is the actual quiz screen for daily quizzes """
-    def __init__(self):
+    def __init__(self, controller):
         # List of answer buttons
+        self.controller = controller
         self.answer_buttons = [None, None, None, None]
         self.setup_page()
 
@@ -36,4 +37,4 @@ class QuizLayout:
     def answer_pressed(self, button):
         """ This calls the controller to check if it was correct or not """
         answer_picked = button.text
-        print(answer_picked)
+        self.controller.check_answer(answer_picked)
