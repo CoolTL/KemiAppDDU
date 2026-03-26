@@ -9,6 +9,7 @@ class TQuizController:
         self.order = self.model.atoms
         rng.shuffle(self.order)
         self.num = 0
+        self.score = 0
 
     def set_view(self, tquiz_view):
         """ We set the view here, this gets set by app.py """
@@ -17,17 +18,20 @@ class TQuizController:
 
         
     def generate_element_text(self):
-        self.tquiz_view.set_element_text(f"Current element: {self.order[self.num].name}")
+        self.tquiz_view.set_element_text(f"Current element: {self.order[self.num].name} <br> ***Score:*** {self.score}")
 
 
 
     def compare_elements(self, element):
-        if element == self.order[self.num]:
-            self.num += 1
-            self.generate_element_text()
-            return True
-        else:
-            return False
+        self.num += 1
+        if element == self.order[self.num-1]:
+            self.score += 100
+        elif element.group == self.order[self.num-1].group:
+            self.score += 50
+        elif element.series == self.order[self.num-1].series:
+            self.score += 50
+        self.generate_element_text()
+        return self.order[self.num-1]
 
     def setup(self):
         self.generate_element_text()

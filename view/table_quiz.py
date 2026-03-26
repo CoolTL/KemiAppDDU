@@ -14,8 +14,9 @@ class TableQuiz():
     
     def button_pressed(self, element):
         """ This calls the controller to change the text """
-        if self.controller.compare_elements(element):
-           self.buttons[element].classes(remove='text-transparent')
+        el = self.controller.compare_elements(element)
+        self.buttons[el].classes(remove='text-transparent')
+
 
     def set_element_text(self, message):
         """ This gets called by the controller to set the element text """
