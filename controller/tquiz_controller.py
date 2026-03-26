@@ -17,7 +17,7 @@ class TQuizController:
 
         
     def generate_element_text(self):
-        self.tquiz_view.set_element_text(f"Current element: {self.order[self.num]}")
+        self.tquiz_view.set_element_text(f"Current element: {self.order[self.num].name}")
 
 
 
