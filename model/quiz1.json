@@ -1,14 +1,20 @@
-[
-	{
-		"id": 1,
-		"question": "Test",
-		"answers": ["H", "O", "He", "Rf"],
-		"correct": 3
+{
+    "questions": {
+	"q1": {
+	    "category": "chemistry",
+	    "difficulty": 1,
+	    "question": "Test",
+	    "answers": ["H", "O", "He", "Rf"],
+	    "correct": 3,
+	    "explanation": "This is the 0th question because of 0-indexing"
+	},
+	"q2": {
+	    "category": "chemistry2",
+	    "difficulty": 1,
+	    "question": "test2",
+	    "answers": ["H", "O", "He", "Rf"],
+	    "correct": 2,
+	    "explanation": "This is the 1st question because of 0-indexing"
 	}
-	{
-		"id": 2,
-		"question": "test2",
-		"answers": ["H", "O", "He", "Rf"],
-		"correct": 2
-	}
-]
+    }
+}
