@@ -79,6 +79,9 @@ class Model:
             results.append(self.atoms[9].name)
         elif search.title() == 'Rong Fu':
             results.append(self.atoms[103].name)
+        elif search.title() == 'Gitte Aasbjerg Friis':
+            results.append(self.atoms[30].name)
+            results.append(self.atoms[8].name)
         for i in self.atoms:
             if str(search).lower() in i.name.lower():
                 results.append(i.name)
