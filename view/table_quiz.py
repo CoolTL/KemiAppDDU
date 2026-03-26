@@ -77,11 +77,6 @@ class TableQuiz():
         with ui.row().classes('w-full no-wrap'):
             # Back button
             ui.button(icon='arrow_back', on_click=lambda: ui.navigate.back())
-            # Search bar
-            self.search_bar = ui.input(label="Search for element",
-                                       placeholder="Start typing",
-                                       on_change=lambda e: self.search_updated(e.value)).props('rounded outlined dense clearable').classes('grow ml-4').on('clear', lambda: self.search_updated(""))
-
         with ui.row().classes('no-wrap'):
             # Periodic table setup
             with ui.card():
