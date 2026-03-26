@@ -13,7 +13,8 @@ class QuizLayoutController:
         question = self.model.prepare_question()
         answer_options = question['answers']
         question_text = question['question']
-        self.view.place_question_text(question_text, answer_options)
+        image_path = question['image']
+        self.view.place_question_text(question_text, answer_options, image_path)
 
     def get_explanation(self):
         """ This gets run if you picked the wrong answer """
