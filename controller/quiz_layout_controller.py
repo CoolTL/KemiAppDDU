@@ -10,8 +10,10 @@ class QuizLayoutController:
 
     def setup_question(self):
         """ Put question text into the view """
-        question = self.model.prepare_question()
-        i = 0
-        for button in self.view.answer_buttons:
-            button.set_text(question['answers'][i])
-            i += 1
+        answer_options = self.model.prepare_question()['answers']
+        self.view.place_question_text(answer_options)
+
+    def get_explanation(self):
+        """ This gets run after you press an answer, either we display a correct message, or an explanation """
+        explanation_text = self.model.prepare_question()['explanation']
+        self.view.write_explanation(explanation_text)
