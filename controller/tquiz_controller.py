@@ -6,8 +6,7 @@ class TQuizController:
 
         # Keeps track of the selected element so that it can be unselected
         self.selected_element =  None
-        self.order = self.model.atoms.copy()
-        rng.shuffle(self.order)
+        
         self.num = 0
         self.score = 0
 
@@ -37,4 +36,7 @@ class TQuizController:
         return self.order[self.num-1]
 
     def setup(self):
+        self.order = self.model.atoms.copy()
+        rng.shuffle(self.order)
+        self.score = 0
         self.generate_element_text()

@@ -12,6 +12,7 @@ class CQuizController:
         self.current_series = None
         self.score = 0
         self.clicked = set()
+        self.completed = False
 
     def set_view(self, cquiz_view):
         """ We set the view here, this gets set by app.py """
@@ -21,6 +22,7 @@ class CQuizController:
         
     def generate_element_text(self):
         if self.current_series is None:
+            self.completed = True
             self.cquiz_view.set_element_text(f"***Quiz Completed, final score: *** {self.score}")
         else:
             series = self.current_series
@@ -48,6 +50,8 @@ class CQuizController:
         self.generate_element_text()
 
     def next_series(self):
+        if self.series_index is None and self.completed == False:
+            rng.shuffle(self.series_list)
         if self.series_index >= len(self.series_list):
             self.current_series = None
             self.generate_element_text()
@@ -62,5 +66,6 @@ class CQuizController:
     def setup(self):
         self.series_list = list(self.series_total.keys())
         rng.shuffle(self.series_list)
+        self.score = 0
         self.series_index = 0
         self.next_series()
