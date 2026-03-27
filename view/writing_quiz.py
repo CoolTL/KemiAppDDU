@@ -14,8 +14,11 @@ class WritingQuiz():
     
     def text_input(self, typed):
         """ This calls the controller to change the text """
-        el = self.controller.compare_elements(typed)
-        self.buttons[el].classes(remove='text-transparent')
+        el = self.controller.compare_elements(typed.value)
+        if el:
+            self.buttons[el].classes(remove='text-transparent')
+            self.input_field.set_value('')
+            self.input_field.update()
 
 
     def set_element_text(self, message):
@@ -40,7 +43,7 @@ class WritingQuiz():
         """ This method is seperate to make the code a bit cleaner """
         grid_style = "grid-cols-[25px_repeat(18,60px)]"
 
-        ui.input(label='Input element here', placeholder='Start typing',on_change=lambda el: self.text_input(el))
+        self.input_field = ui.input(label='Input element here', placeholder='Start typing',on_change=self.text_input)
         
         with ui.grid().classes(f'gap-1.5 {grid_style}'):
             ui.label('') # Empty corner
