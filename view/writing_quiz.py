@@ -17,8 +17,11 @@ class WritingQuiz():
         el = self.controller.compare_elements(typed.value)
         if el:
             self.buttons[el].classes(remove='text-transparent')
-            self.input_field.set_value('')
-            self.input_field.update()
+            ui.timer(0.01, lambda: self.clear_field(typed.sender), once=True)
+            
+    def clear_field(self, input_field):
+        input_field.set_value('')
+        input_field.update()
 
 
     def set_element_text(self, message):

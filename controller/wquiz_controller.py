@@ -26,6 +26,8 @@ class WQuizController:
         if typed in self.element_names and typed not in self.found:
             self.found.add(typed)
             el = self.element_names[typed]
+            self.score += 1
+            self.generate_element_text()
             return el
 
 
