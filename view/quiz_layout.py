@@ -27,12 +27,13 @@ class QuizLayout:
             for i in range(len(self.answer_buttons)):
                 self.answer_buttons[i].on_click(lambda val=self.answer_buttons[i]: self.answer_pressed(val))
             # Explanation text
-            self.explanation_label = ui.label("Choose an answer")
+            self.explanation_label = ui.label("Vælg et svar for at fortsætte.")
 
     def place_question_text(self, question, options, image):
         """ This gets called by the controller and gives the options for answers, plus the question """
         self.question.set_text(question)
         self.image.set_source(image)
+        self.explanation_label.set_text("Vælg et svar for at fortsætte.")
         i = 0
         for button in self.answer_buttons:
             button.set_text(options[i])

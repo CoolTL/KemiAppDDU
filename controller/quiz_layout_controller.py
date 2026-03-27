@@ -31,7 +31,7 @@ class QuizLayoutController:
         """ This checks if the answer selected is correct or not """
         correct_answer = self.question['answers'][self.question['correct']]
         if answer == correct_answer:
-            self.view.write_explanation("Correct!")
+            self.view.write_explanation("Korrekt!")
         else:
             self.get_explanation()
         self.view.buttons_enabled(False)

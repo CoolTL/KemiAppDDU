@@ -23,11 +23,7 @@ class QuizPackController(QuizLayoutController):
         
     def check_answer(self, answer):
         """ This checks if the answer selected is correct or not, it varies from the parent in that it also enables/disables the next button """
+        super().check_answer(answer)
         self.current_question += 1
         self.view.next_button.set_enabled(True)
-        correct_answer = self.question['answers'][self.question['correct']]
-        if answer == correct_answer:
-            self.view.write_explanation("Correct!")
-        else:
-            self.get_explanation()
         self.view.buttons_enabled(False)
