@@ -4,6 +4,7 @@ from model.model import Model
 from model.quiz_model import QuizModel
 from view.table import TablePage
 from view.quiz_layout import QuizLayout
+from view.quiz_pack_view import QuizPackView
 import view.start_view as start
 import view.quiz_menu as qm
 import view.table_quiz as qt
@@ -53,7 +54,7 @@ def daily_quiz_page():
     daily_quiz_controller.set_view(daily_quiz)
 @ui.page('/quiz/molecule')
 def molecule_quiz_page():
-    molecule_quiz = QuizLayout(molecule_quiz_controller)
+    molecule_quiz = QuizPackView(molecule_quiz_controller)
     molecule_quiz_controller.set_view(molecule_quiz)
 @ui.page('/tquiz')
 def tquiz_page():
