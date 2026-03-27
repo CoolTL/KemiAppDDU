@@ -12,6 +12,7 @@ class QuizScreen:
 
             self.quiz('Daglig Quiz', 'quiz/daily')
             self.quiz('Udfyld det periodiske system', 'tquiz')
+            self.quiz('Navngiv det periodiske system', 'temp')
             self.quiz('Farv det periodiske system', 'cquiz')
             self.quiz('Lær navngivning af molekyler', 'quiz/molecule')
             
