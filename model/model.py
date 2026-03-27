@@ -86,10 +86,3 @@ class Model:
             if str(search).lower() in i.name.lower():
                 results.append(i.name)
         return results
-
-
-model = Model()
-
-print(model.get_info(model.atoms[0]))
-print(model.search('Hydrogen'))
-

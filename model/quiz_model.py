@@ -12,7 +12,7 @@ class QuizModel:
 
     def prepare_question(self):
         """ This method returns a question to be used by the controller """
-        return self.json_database['questions']['q1']
+        return self.json_database['questions']["0"]
 
     def correct_answer(self):
         """ Returns the correct answer as a string """

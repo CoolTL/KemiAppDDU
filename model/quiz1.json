@@ -1,20 +1,37 @@
 {
     "questions": {
-	"q1": {
+	"0": {
 	    "category": "chemistry",
 	    "difficulty": 1,
-	    "question": "Hvilken grundstof har samme bogstaver som Rong's initialler?",
-	    "answers": ["H", "O", "He", "Rf"],
-	    "correct": 3,
-	    "explanation": "Hendes fulde navn er Rong Fu"
+	    "question": "Hvilket grundstof har atomnummer 6?",
+	    "image": "https://picsum.photos/id/377/640/360",
+	    "answers": ["Nitrogen (N)", "Oxygen (O)", "Carbon (C)", "Bor (B)"],
+	    "correct": 1,
+	    "explanation": "Carbon er det 6. grundstof, og har derfor atomnummer 6."
 	},
-	"q2": {
-	    "category": "chemistry2",
+	"1": {
+	    "category": "chemistry",
 	    "difficulty": 1,
-	    "question": "test2",
-	    "answers": ["H", "O", "He", "Rf"],
-	    "correct": 2,
-	    "explanation": "This is the 1st question because of 0-indexing"
+	    "question": "Hvad er sølvs symbol?",
+	    "answers": ["Si", "Sr", "Au", "Ag"],
+	    "correct": 3,
+	    "explanation": "Svaret er 'Ag' fordi det kommer fra det latinsk ord for sølv 'Argentum'."
+	},
+	"2": {
+	    "category": "chemistry",
+	    "difficulty": 1,
+	    "question": "Hvilket grundstof findes i gruppe 1 og reagerer voldsomt med vand?",
+	    "answers": ["Kalium (K)", "Jern (Fe)", "Calcium (Ca)", "Guld (Au)"],
+	    "correct": 0,
+	    "explanation": "Kalium er et alkalimetal, og disse grundstoffer er meget reaktive, især med vand."
+	},
+	"3": {
+	    "category": "chemistry",
+	    "difficulty": 1,
+	    "question": "Hvilket af disse grundstoffer er en ædelgas?",
+	    "answers": ["Chlor (Cl)", "Neon (Ne)", "Natrium (Na)", "Kviksølv (Hg)"],
+	    "correct": 1,
+	    "explanation": "Neon er i gruppe 18, hvilket betyder at det har en fuld valensskal og er kemisk stabilt."
 	}
     }
 }

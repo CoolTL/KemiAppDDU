@@ -27,7 +27,8 @@ model = Model()
 quiz_model = QuizModel()
 # Each view will have its own controller for example the quiz page and the periodic table geoguessr
 table_controller = TableController(model)
-quiz_layout_controller = QuizLayoutController(quiz_model)
+daily_quiz_controller = QuizLayoutController(quiz_model)
+molecule_quiz_controller = QuizLayoutController(quiz_model)
 tquiz_controller = TQuizController(model)
 @ui.page('/table')
 def table_page():
@@ -40,9 +41,13 @@ def main_page():
 def quiz():
     quiz = qm.QuizScreen()
 @ui.page('/quiz/daily')
-def quiz_layout_page():
-    quiz_layout = QuizLayout(quiz_layout_controller)
-    quiz_layout_controller.set_view(quiz_layout)
+def daily_quiz_page():
+    daily_quiz = QuizLayout(daily_quiz_controller)
+    daily_quiz_controller.set_view(daily_quiz)
+@ui.page('/quiz/molecule')
+def molecule_quiz_page():
+    molecule_quiz = QuizLayout(molecule_quiz_controller)
+    molecule_quiz_controller.set_view(molecule_quiz)
 @ui.page('/tquiz')
 def tquiz_page():
     tquiz = qt.TableQuiz(model.layout, tquiz_controller)
