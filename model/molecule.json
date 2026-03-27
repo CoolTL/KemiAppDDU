@@ -1,42 +1,39 @@
-[
-    {
-        "id": 1,
-        "question": "Trin 1: Når to forskellige grundstoffer danner et molekyle, ændres navnet på det sidste grundstof. Hvilken endelse bruger man typisk?",
-        "answers": ["-at", "-id", "-on", "-an"],
-        "correct": 1,
-        "explanation": "I simple molekyler ændres slutningen af det andet grundstof til '-id'. For eksempel bliver Oxygen til Oxid.",
-        "image": "nomenklatur_regler.png"
-    },
-    {
-        "id": 2,
-        "question": "Trin 2: Vi bruger græske tal-præfikser til at fortælle, hvor mange atomer der er. Hvad betyder præfikset 'Di-'?",
-        "answers": ["1", "2", "3", "4"],
-        "correct": 1,
-        "explanation": "'Di' betyder to. CO2 hedder f.eks. Carbon-di-oxid, fordi der er to Oxygen-atomer.",
-        "image": "praefiks_tabel.png"
-    },
-    {
-        "id": 3,
-        "question": "Trin 3: Hvad hedder præfikset for 1 (bruges ofte kun på det sidste grundstof)?",
-        "answers": ["Uni-", "Mono-", "Pro-", "Sim-"],
-        "correct": 1,
-        "explanation": "'Mono' betyder ét. CO hedder Carbon-mon-oxid (bemærk at man ofte fjerner det ekstra 'o').",
-        "image": "carbon_monoxid_struktur.png"
-    },
-    {
-        "id": 4,
-        "question": "Trin 4: Lad os samle det. Et molekyle består af ét Svovl-atom (S) og to Oxygen-atomer (O). Hvad er det korrekte navn?",
-        "answers": ["Svovloxid", "Disvovloxid", "Svovldioxid", "Svovlmonoxid"],
-        "correct": 2,
-        "explanation": "Ét Svovl (navnet beholdes) og to (di) Oxygen (bliver til oxid) giver Svovldioxid (SO2).",
-        "image": "so2_molekyle.png"
-    },
-    {
-        "id": 5,
-        "question": "Trin 5: Hvad vil det kemiske navn for molekylet N2O4 (2 Nitrogen og 4 Oxygen) være? (Tip: 4 = Tetra)",
-        "answers": ["Dinitrogen-tetroxid", "Nitrogen-dioxid", "Tetranitrogen-dioxid", "Dinitrogen-quadroxid"],
-        "correct": 0,
-        "explanation": "To Nitrogen (Dinitrogen) og fire Oxygen (Tetroxid) giver Dinitrogen-tetroxid.",
-        "image": "n2o4_struktur.png"
+{
+    "molecule": {
+        "0": {
+            "question": "Trin 1: Når to forskellige grundstoffer danner et molekyle, ændres navnet på det sidste grundstof. Hvilken endelse bruger man typisk?",
+            "answers": ["-at", "-id", "-on", "-an"],
+            "correct": 1,
+            "explanation": "I simple molekyler ændres slutningen af det andet grundstof til '-id'. For eksempel bliver Oxygen til Oxid.",
+            "image": "nomenklatur_regler.png"
+	},
+	"1": {
+            "question": "Trin 2: Vi bruger græske tal-præfikser til at fortælle, hvor mange atomer der er. Hvad betyder præfikset 'Di-'?",
+            "answers": ["1", "2", "3", "4"],
+            "correct": 1,
+            "explanation": "'Di' betyder to. CO2 hedder f.eks. Carbon-di-oxid, fordi der er to Oxygen-atomer.",
+            "image": "praefiks_tabel.png"
+	},
+        "2": {
+            "question": "Trin 3: Hvad hedder præfikset for 1 (bruges ofte kun på det sidste grundstof)?",
+            "answers": ["Uni-", "Mono-", "Pro-", "Sim-"],
+            "correct": 1,
+            "explanation": "'Mono' betyder ét. CO hedder Carbon-mon-oxid (bemærk at man ofte fjerner det ekstra 'o').",
+            "image": "carbon_monoxid_struktur.png"
+	},
+        "3": {
+            "question": "Trin 4: Lad os samle det. Et molekyle består af ét Svovl-atom (S) og to Oxygen-atomer (O). Hvad er det korrekte navn?",
+            "answers": ["Svovloxid", "Disvovloxid", "Svovldioxid", "Svovlmonoxid"],
+            "correct": 2,
+            "explanation": "Ét Svovl (navnet beholdes) og to (di) Oxygen (bliver til oxid) giver Svovldioxid (SO2).",
+            "image": "so2_molekyle.png"
+	},
+	"4": {
+            "question": "Trin 5: Hvad vil det kemiske navn for molekylet N2O4 (2 Nitrogen og 4 Oxygen) være? (Tip: 4 = Tetra)",
+            "answers": ["Dinitrogen-tetroxid", "Nitrogen-dioxid", "Tetranitrogen-dioxid", "Dinitrogen-quadroxid"],
+            "correct": 0,
+            "explanation": "To Nitrogen (Dinitrogen) og fire Oxygen (Tetroxid) giver Dinitrogen-tetroxid.",
+            "image": "n2o4_struktur.png"
+	}
     }
-]
+}

@@ -10,6 +10,7 @@ import view.table_quiz as qt
 import view.colour_quiz as ct
 from controller.table_controller import TableController
 from controller.quiz_layout_controller import QuizLayoutController
+from controller.quiz_pack_controller import QuizPackController
 from controller.tquiz_controller import TQuizController
 from controller.cquiz_controller import CQuizController
 
@@ -30,7 +31,7 @@ quiz_model = QuizModel()
 # Each view will have its own controller for example the quiz page and the periodic table geoguessr
 table_controller = TableController(model)
 daily_quiz_controller = QuizLayoutController(quiz_model)
-molecule_quiz_controller = QuizLayoutController(quiz_model)
+molecule_quiz_controller = QuizPackController(quiz_model)
 tquiz_controller = TQuizController(model)
 cquiz_controller = CQuizController(model)
 @ui.page('/table')
