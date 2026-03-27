@@ -7,9 +7,11 @@ from view.quiz_layout import QuizLayout
 import view.start_view as start
 import view.quiz_menu as qm
 import view.table_quiz as qt
+import view.colour_quiz as ct
 from controller.table_controller import TableController
 from controller.quiz_layout_controller import QuizLayoutController
 from controller.tquiz_controller import TQuizController
+from controller.cquiz_controller import CQuizController
 
 # Make buttons not all caps
 ui.button.default_props('no-caps')
@@ -30,6 +32,7 @@ table_controller = TableController(model)
 daily_quiz_controller = QuizLayoutController(quiz_model)
 molecule_quiz_controller = QuizLayoutController(quiz_model)
 tquiz_controller = TQuizController(model)
+cquiz_controller = CQuizController(model)
 @ui.page('/table')
 def table_page():
     table = TablePage(model.layout, table_controller)
@@ -52,5 +55,9 @@ def molecule_quiz_page():
 def tquiz_page():
     tquiz = qt.TableQuiz(model.layout, tquiz_controller)
     tquiz_controller.set_view(tquiz)
+@ui.page('/cquiz')
+def cquiz_page():
+    cquiz = ct.ColourQuiz(model.layout, cquiz_controller)
+    cquiz_controller.set_view(cquiz)
 
 ui.run()

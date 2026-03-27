@@ -11,6 +11,7 @@ class CQuizController:
         self.series_progress = {series: 0 for series in self.series_total}
         self.current_series = None
         self.score = 0
+        self.clicked = set()
 
     def set_view(self, cquiz_view):
         """ We set the view here, this gets set by app.py """
@@ -19,27 +20,38 @@ class CQuizController:
 
         
     def generate_element_text(self):
-        if self.series_index >= len(self.series_list):
+        if self.current_series is None:
             self.cquiz_view.set_element_text(f"***Quiz Completed, final score: *** {self.score}")
         else:
             series = self.current_series
-            self.cquiz_view.set_element_text(f"Current series: {self.current_series} <br> Amount pressed: {self.series_progress[series]/self.series_total[series]} ***Score:*** {self.score}")
+            self.cquiz_view.set_element_text(f"Current series: {self.current_series} <br> Amount pressed: {self.series_progress[series]}/{self.series_total[series]} ***Score:*** {self.score}")
 
 
 
     def compare_series(self, element):
+        if element in self.clicked:
+            return
         if self.current_series is None:
             return
 
         if element.series == self.current_series:
             self.series_progress[self.current_series] += 1
             self.score += 100
+            self.clicked.add(element)
             if self.series_progress[self.current_series] == self.series_total[self.current_series]:
                 self.next_series()
-                return
+                return True
+            self.generate_element_text()
+            return True
+        else:
+            self.score -= 50
         self.generate_element_text()
 
     def next_series(self):
+        if self.series_index >= len(self.series_list):
+            self.current_series = None
+            self.generate_element_text()
+            return
         self.current_series = self.series_list[self.series_index]
         self.series_index += 1
         self.series_progress[self.current_series] = 0
@@ -52,4 +64,3 @@ class CQuizController:
         rng.shuffle(self.series_list)
         self.series_index = 0
         self.next_series()
-        self.generate_element_text()
