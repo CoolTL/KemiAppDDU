@@ -62,13 +62,10 @@ class Model:
         el.append(element.name)
         n = 0
         for i in self.infos:
-            try:
+            if str(getattr(element, i)) == "None":
+                el.append(self.names[n] + ": " + str(getattr(element, i)))
+            else:
                 el.append(self.names[n] + ": " + str(getattr(element, i)) + str(self.units[n]))
-            except:
-                try:
-                    el.append(self.names[n] + ": " + str(getattr(element, i)))
-                except:
-                    el.append(self.names[n] + ": N/A")
             n += 1
         return el
     
