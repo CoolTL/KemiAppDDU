@@ -15,7 +15,7 @@ class QuizPackView(QuizLayout):
             # Question text
             self.question = ui.label("Question goes here").classes('text-3xl mt-16')
             # Question image
-            self.image = ui.image('Picture goes here').classes('w-32 h-32 object-contain')
+            self.image = ui.image('Picture goes here').classes('object-contain').style('width: 25vw; max-width: 400px; min-width: 200px; height: auto;')
             # Answer options
             with ui.grid(columns=2):
                 for i in range(len(self.answer_buttons)):

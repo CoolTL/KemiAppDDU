@@ -48,11 +48,11 @@ def main_page():
 @ui.page('/quiz')
 def quiz():
     quiz = qm.QuizScreen()
-@ui.page('/quiz/daily')
+@ui.page('/daily')
 def daily_quiz_page():
     daily_quiz = QuizLayout(daily_quiz_controller)
     daily_quiz_controller.set_view(daily_quiz)
-@ui.page('/quiz/molecule')
+@ui.page('/molecule')
 def molecule_quiz_page():
     molecule_quiz = QuizPackView(molecule_quiz_controller)
     molecule_quiz_controller.set_view(molecule_quiz)
