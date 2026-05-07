@@ -20,7 +20,7 @@ class TQuizController:
         if self.num < len(self.order):
             self.tquiz_view.set_element_text(f"Current element: {self.order[self.num].name} <br> ***Score:*** {self.score}")
         else:
-            self.tquiz_view.set_element_text(f"Quiz finished <br> ***Final score:*** {self.score}")
+            self.tquiz_view.completed(self.score)
 
 
 

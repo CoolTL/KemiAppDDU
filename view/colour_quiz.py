@@ -72,7 +72,7 @@ class ColourQuiz():
     def color_table(self):
         """ This method makes the colors of the buttons correct """
         for button in self.buttons:
-            self.buttons[button].set_background_color(WHITE)
+            self.buttons[button].set_background_color("#FFFFFF")
         
 
     def setup_page(self):
@@ -89,3 +89,18 @@ class ColourQuiz():
             # Message box for element information
             with ui.card():
                 self.element_message = ui.markdown("", extras=['latex'])
+        self.tutorial()
+    def completed(self, score):
+        with ui.dialog() as dialog, ui.card():
+            ui.markdown(f"**Quiz Completed** <br> **Final Score:** {score}")
+            ui.button("Go Back", on_click=lambda: ui.navigate.back())
+        dialog.open()
+
+    def tutorial(self):
+        with ui.dialog() as dialog, ui.card():
+            ui.markdown("""You are given a random series, which you can see on the right, where you will have to press on all the elements that is in that series. <br> 
+                        When you are finished with a series, it will move onto another series, untill all the series have been filled out. <br>
+                        You will be given score for each element you get correct, and lose score for each you miss place.""").classes('text-center')
+            with ui.row().classes('w-full justify-center'):
+                ui.button("Start", on_click=dialog.close).classes('items-center')
+        dialog.open()

@@ -18,6 +18,7 @@ class WritingQuiz():
         if el:
             self.buttons[el].classes(remove='text-transparent')
             ui.timer(0.01, lambda: self.clear_field(typed.sender), once=True)
+            self.controller.check_win()
             
     def clear_field(self, input_field):
         input_field.set_value('')
@@ -97,3 +98,19 @@ class WritingQuiz():
             # Message box for element information
             with ui.card():
                 self.element_message = ui.markdown("", extras=['latex'])
+        self.tutorial()
+
+    def completed(self, score):
+        with ui.dialog() as dialog, ui.card():
+            ui.markdown(f"**Quiz Completed** <br> **Final Score:** {score}")
+            ui.button("Go Back", on_click=lambda: ui.navigate.back())
+        dialog.open()
+    def tutorial(self):
+        with ui.dialog() as dialog, ui.card():
+            ui.markdown("""Click the input field at the top, and write an element. <br>
+                        The table will autofill when you type an element. <br>
+                        When done you will be shown your score, defined by how many elements you got.""").classes('text-center')
+            with ui.row().classes('w-full justify-center'):
+                ui.button("Start", on_click=dialog.close).classes('items-center')
+        dialog.open()
+

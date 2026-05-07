@@ -29,6 +29,9 @@ class WQuizController:
             self.score += 1
             self.generate_element_text()
             return el
+    def check_win(self):
+        if self.score == 118:
+            self.wquiz_view.completed(self.score)
 
 
     def setup(self):

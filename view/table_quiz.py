@@ -26,15 +26,15 @@ class TableQuiz():
     def populate_table(self, m):
         """ This function takes a multiplier for settings up the table """
         for i in range(0+18*m, 18+18*m):
-                    if self.layout[i] != 0:
-                        with ui.button(f"{self.layout[i].symbol}", on_click=lambda val=self.layout[i]: self.button_pressed(val)).classes('w-[62px] h-[62px] p-0 border border-gray-300 text-transparent') as button:
-                            self.buttons[self.layout[i]] = button
-                            # Atomic number in the corner
-                            ui.label(self.layout[i].atomic_number).classes('absolute top-0 left-1 text-[10px] opacity-85')
-                            # Full name underneath
-                            ui.label(self.layout[i].name).classes('absolute top-8 text-[9px] opacity-90')
-                    else:
-                        ui.space()
+            if self.layout[i] != 0:
+                with ui.button(f"{self.layout[i].symbol}", on_click=lambda val=self.layout[i]: self.button_pressed(val)).classes('w-[62px] h-[62px] p-0 border border-gray-300 text-transparent') as button:
+                    self.buttons[self.layout[i]] = button
+                    # Atomic number in the corner
+                    ui.label(self.layout[i].atomic_number).classes('absolute top-0 left-1 text-[10px] opacity-85')
+                    # Full name underneath
+                    ui.label(self.layout[i].name).classes('absolute top-8 text-[9px] opacity-90')
+            else:
+                ui.space()
 
     def setup_table(self):
         """ This method is seperate to make the code a bit cleaner """
@@ -89,3 +89,19 @@ class TableQuiz():
             # Message box for element information
             with ui.card():
                 self.element_message = ui.markdown("", extras=['latex'])
+        self.tutorial()
+    def completed(self, score):
+        with ui.dialog() as dialog, ui.card():
+            ui.markdown(f"**Quiz Completed** <br> **Final Score:** {score}")
+            ui.button("Go Back", on_click=lambda: ui.navigate.back())
+        dialog.open()
+    def tutorial(self):
+        with ui.dialog() as dialog, ui.card():
+            ui.markdown("""You are given a random element, that you have to place in the Periodic table. <br>
+                        When you have pressed a spot in the table, it will place the element in it's correct position in the grid. <br>
+                        You will be given the full score if you get the exact position correct, and half score if you are in the correct series or the correct group. <br>
+                        The quiz ends when you have gone through all 118 elements, and you will be shown your final score""").classes('text-center')
+            with ui.row().classes('w-full justify-center'):
+                ui.button("Start", on_click=dialog.close).classes('items-center')
+        dialog.open()
+

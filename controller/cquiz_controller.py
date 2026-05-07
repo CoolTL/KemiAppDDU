@@ -23,10 +23,10 @@ class CQuizController:
     def generate_element_text(self):
         if self.current_series is None:
             self.completed = True
-            self.cquiz_view.set_element_text(f"***Quiz Completed, final score: *** {self.score}")
+            self.cquiz_view.completed(self.score)
         else:
             series = self.current_series
-            self.cquiz_view.set_element_text(f"Current series: {self.current_series} <br> Amount pressed: {self.series_progress[series]}/{self.series_total[series]} ***Score:*** {self.score}")
+            self.cquiz_view.set_element_text(f"Current series: {self.current_series} <br> Amount pressed: {self.series_progress[series]}/{self.series_total[series]} **Score:** {self.score}")
 
 
 
