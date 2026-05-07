@@ -69,5 +69,5 @@ def wquiz_page():
     wquiz = wt.WritingQuiz(model.layout, wquiz_controller)
     wquiz_controller.set_view(wquiz)
 
-ui.run()
+ui.run(title="Kemidle")
 #native=True, reload=False

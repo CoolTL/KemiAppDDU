@@ -13,6 +13,8 @@ class MainScreen:
             with ui.row().classes('gap-4'):
                 ui.button('Quiz', on_click=lambda: ui.navigate.to('/quiz')).classes('text-xl py-4 w-64')
                 ui.button('Periodisk System', on_click=lambda: ui.navigate.to('/table')).classes('text-xl py-4 w-64')
+            # Chemistry image
+            ui.image("view/title.png").classes("w-32")
 
 
 
