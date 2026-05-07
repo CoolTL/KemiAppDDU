@@ -71,6 +71,8 @@ class ColourQuiz():
 
     def color_table(self):
         """ This method makes the colors of the buttons correct """
+        for button in self.buttons:
+            self.buttons[button].set_background_color(WHITE)
         
 
     def setup_page(self):
