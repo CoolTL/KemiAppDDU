@@ -1,4 +1,0 @@
-nicegui
-numpy
-mendeleev
-latex2mathml

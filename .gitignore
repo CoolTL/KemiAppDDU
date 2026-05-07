@@ -8,3 +8,6 @@
 */*~
 */*.swo
 __pycache__/
+KemiApp.spec
+build/
+dist/

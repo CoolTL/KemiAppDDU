@@ -4,7 +4,7 @@
 	    "category": "chemistry",
 	    "difficulty": 1,
 	    "question": "Hvilket grundstof har atomnummer 6?",
-	    "image": "https://picsum.photos/id/377/640/360",
+	    "image": "model/images/daily.png",
 	    "answers": ["Nitrogen (N)", "Oxygen (O)", "Carbon (C)", "Bor (B)"],
 	    "correct": 2,
 	    "explanation": "Carbon er det 6. grundstof, og har derfor atomnummer 6."

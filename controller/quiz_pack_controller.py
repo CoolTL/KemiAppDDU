@@ -1,4 +1,5 @@
 from controller.quiz_layout_controller import QuizLayoutController
+from paths import resource_path
 
 class QuizPackController(QuizLayoutController):
     """ This class is responsible for quiz packs and inherits from the daily quiz controller """
@@ -17,7 +18,7 @@ class QuizPackController(QuizLayoutController):
         self.question = self.pack[f"{self.current_question}"]
         answer_options = self.question['answers']
         question_text = self.question['question']
-        image_path = self.question['image']
+        image_path = resource_path(self.question['image'])
         self.view.place_question_text(question_text, answer_options, image_path)
         self.view.buttons_enabled(True)
         

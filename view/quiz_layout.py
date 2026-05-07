@@ -1,4 +1,5 @@
 from nicegui import ui
+from paths import resource_path
 
 class QuizLayout:
     """ This class is the actual quiz screen for daily quizzes """
@@ -18,7 +19,7 @@ class QuizLayout:
             # Question text
             self.question = ui.label("Question goes here").classes('text-3xl mt-16')
             # Question image
-            self.image = ui.image('Picture goes here').classes('w-32 h-32 object-contain')
+            self.image = ui.image('Picture goes here').classes('w-32 h-32 object-contain').style('width: 25vw; max-width: 400px; min-width: 200px; height: auto;')
             # Answer options
             with ui.grid(columns=2):
                 for i in range(len(self.answer_buttons)):
@@ -32,7 +33,7 @@ class QuizLayout:
     def place_question_text(self, question, options, image):
         """ This gets called by the controller and gives the options for answers, plus the question """
         self.question.set_text(question)
-        self.image.set_source(image)
+        self.image.set_source(resource_path(image))
         self.explanation_label.set_text("Vælg et svar for at fortsætte.")
         i = 0
         for button in self.answer_buttons:

@@ -69,4 +69,4 @@ def wquiz_page():
     wquiz = wt.WritingQuiz(model.layout, wquiz_controller)
     wquiz_controller.set_view(wquiz)
 
-ui.run()
+ui.run(native=True, reload=False)

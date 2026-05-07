@@ -1,5 +1,6 @@
 import json
 import os
+from paths import resource_path
 
 class QuizModel:
     """ This model gets the data from the quiz databases so it can be presented in the view """
@@ -15,7 +16,7 @@ class QuizModel:
 
     def prepare_daily_question(self):
         """ This method returns a question to be used by the controller """
-        return self.get_json("quiz1.json")['questions']["0"]
+        return self.get_json(resource_path("model/quiz1.json"))['questions']["0"]
 
     def get_quiz_pack(self):
-        return self.get_json("molecule.json")['molecule']
+        return self.get_json(resource_path("model/molecule.json"))['molecule']
