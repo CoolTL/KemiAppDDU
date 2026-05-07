@@ -96,4 +96,4 @@ class TablePage():
                 
             # Message box for element information
             with ui.card():
-                self.element_message = ui.markdown("", extras=['latex'])
+                self.element_message = ui.markdown("", extras=['latex']).style('white-space: nowrap;')

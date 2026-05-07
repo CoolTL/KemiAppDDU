@@ -15,11 +15,8 @@ class TableController:
     def unselect_element(self):
         """ This is also run at the start and everytime an element is unselected """
         self.selected_element = None
-        start_message = """### Selected element: **None**
-        Each element in the system is represented by its symbol and its atomic number in the top left corner."""
+        start_message = """### Selected element: **None** """
         self.table_view.set_element_text(start_message)
-        
-
 
     def generate_element_text(self, element):
         """ This gets called by the table view, and then we use it to update the description of the element """
