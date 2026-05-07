@@ -24,10 +24,15 @@ class QuizPackView(QuizLayout):
             for i in range(len(self.answer_buttons)):
                 self.answer_buttons[i].on_click(lambda val=self.answer_buttons[i]: self.answer_pressed(val))
             # Explanation text
-            self.explanation_label = ui.label("Vælg et svar for at fortsætte.")
+            self.explanation_label = ui.label("Vælg et svar for at fortsætte.").classes('text-2xl')
             self.next_button = ui.button("Næste spørgsmål").on_click(self.next_button_pressed)
         self.next_button.set_enabled(False)
 
     def next_button_pressed(self):
         self.next_button.set_enabled(False)
         self.controller.next_question()
+    def completed(self):
+        with ui.dialog() as dialog, ui.card():
+            ui.markdown(f"**Quiz Completed**")
+            ui.button("Go Back", on_click=lambda: ui.navigate.back())
+        dialog.open()

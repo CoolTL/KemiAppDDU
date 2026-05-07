@@ -28,7 +28,7 @@ class QuizLayout:
             for i in range(len(self.answer_buttons)):
                 self.answer_buttons[i].on_click(lambda val=self.answer_buttons[i]: self.answer_pressed(val))
             # Explanation text
-            self.explanation_label = ui.label("Vælg et svar for at fortsætte.")
+            self.explanation_label = ui.label("Vælg et svar for at fortsætte.").classes('text-2xl')
 
     def place_question_text(self, question, options, image):
         """ This gets called by the controller and gives the options for answers, plus the question """
@@ -57,3 +57,9 @@ class QuizLayout:
         else:
             for button in self.answer_buttons:
                 button.disable()
+    def completed(self):
+        with ui.dialog() as dialog, ui.card():
+            ui.markdown(f"**Quiz Completed**")
+            ui.button("Go Back", on_click=lambda: ui.navigate.back())
+        dialog.open()
+

@@ -11,8 +11,6 @@ class QuizPackController(QuizLayoutController):
         self.pack = self.model.get_quiz_pack()
         self.next_question()
 
-    def select_next_question(self):
-        self.current_question += 1
 
     def next_question(self):
         self.question = self.pack[f"{self.current_question}"]
@@ -23,8 +21,17 @@ class QuizPackController(QuizLayoutController):
         self.view.buttons_enabled(True)
         
     def check_answer(self, answer):
-        """ This checks if the answer selected is correct or not, it varies from the parent in that it also enables/disables the next button """
-        super().check_answer(answer)
+        """ This checks if the answer selected is correct or not """
+        correct_answer = self.question['answers'][self.question['correct']]
+        if answer == correct_answer:
+            self.view.write_explanation("Korrekt!")
+        else:
+            self.get_explanation()
+        self.view.buttons_enabled(False)
         self.current_question += 1
+        if str(self.current_question) not in self.pack:
+            self.view.completed()
+            self.current_question = 0
         self.view.next_button.set_enabled(True)
         self.view.buttons_enabled(False)
+
