@@ -89,6 +89,7 @@ class TableQuiz():
             # Message box for element information
             with ui.card():
                 self.element_message = ui.markdown("", extras=['latex'])
+                ui.button("Hint", on_click=lambda: self.controller.hint())
         self.tutorial()
     def completed(self, score):
         with ui.dialog() as dialog, ui.card():
@@ -104,4 +105,5 @@ class TableQuiz():
             with ui.row().classes('w-full justify-center'):
                 ui.button("Start", on_click=dialog.close).classes('items-center')
         dialog.open()
+
 
